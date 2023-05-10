@@ -1,5 +1,5 @@
 from flask import Flask, request
-from subprocess import Popen
+import subprocess
 import socket
 
 app = Flask(__name__)
@@ -7,8 +7,8 @@ port = 5000
 
 @app.route('/', methods=['POST'])
 def root_get():
-    subprocess.Popen("stress.py")
-    return str(seed)
+    subprocess.Popen(["python3", "stress.py"])
+    return "good"
 
 @app.route('/', methods=['GET'])
 def root_post():
